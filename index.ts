@@ -8,6 +8,7 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
+const host = process.env.HOST;
 
 app.post("/analyze", (req: Request, res: Response) => {
   let code = req.query["code"];
@@ -46,5 +47,5 @@ app.use(
 );
 
 app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
+  console.log(`⚡️[server]: Server is running at https://${host}:${port}`);
 });
